@@ -16,7 +16,8 @@ Basic explanation of code:
 
 config.h -> contains global setting for the project like pin-no for a sensor
             making it easy for us to change pins we connect our sensors to.
-            macros are defined insted of global variables as we are statically compiling our binaries and.. it saves stack space;
+            macros are defined insted of global variables as we are statically 
+            compiling our binaries and.. it saves stack space;
             (google about macros)
 
 2 cpp files are there: main.cpp  & sensor_manger.cpp
@@ -26,7 +27,8 @@ main.cpp - starting point of the program (basically calls functions from sensor_
 sensor_manager.cpp - file includes sensor_driver.h  - contains abstract class Sensor (defining rules for adding a sensor class)
                               temp_humidity_sensor.h - class which implements Sensor class which whill expose member
                                                        function to get temperature and humidity reading
-                              gas_sensor.h - class which implements Sensor class which whill expose member function to get gas concentration reading
+                              gas_sensor.h - class which implements Sensor class which whill expose member function to get gas 
+                                              concentration reading
                               config.h - to access pins connected to sensors for initialisations.
                      
                      and exposes some functions to acess the sensor reading data/
@@ -35,8 +37,8 @@ sensor_manager.h - contains declaration of functions in sensor_manager.cpp makin
 
 
 Overall - making a class of a certain sensor (implementing Sensor class) and instantiating it in the sensor_manger.cpp.
-          and just by adding it to the init_all_sensor and get_all_reading functions the right way will make just any kind of sensor data be added
-          into our data list making it very easy to interface any sensor without any dependensies.
+          and just by adding it to the init_all_sensor and get_all_reading functions the right way will make just any 
+          kind of sensor data be added into our data list making it very easy to interface any sensor without any dependensies.
           
           as data can also be serialized into json format we can use the data anywhere (eg post to cloud) then use cases are huge .
                      
